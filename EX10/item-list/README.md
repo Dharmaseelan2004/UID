@@ -118,5 +118,4 @@ The Item List Application serves as a practical example of full-stack developmen
 
 ![Screenshot 2024-10-22 211927](https://github.com/user-attachments/assets/114aa35d-393b-493c-843b-3903361fb439)
 
-![Screenshot (2)](https://github.com/user-attachments/assets/a91ecbbb-aef9-4f34-a142-6c356afb3c2f)
 
