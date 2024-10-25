@@ -1,0 +1,81 @@
+.app-container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  background-color: #1e1e1e; /* Dark background */
+  color: #ffffff; /* White text */
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+h1, h2 {
+  text-align: center;
+  color: #00d1b2; /* Attractive color */
+}
+
+.student-form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.student-form input {
+  margin: 5px 0;
+  padding: 10px;
+  border: 1px solid #3498db; /* Light blue border */
+  border-radius: 4px;
+  background-color: #2c2c2c; /* Dark input background */
+  color: #ffffff; /* White text */
+}
+
+.student-form button {
+  padding: 10px;
+  background-color: #f39c12; /* Orange button */
+  color: #ffffff; /* White text */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.student-form button:hover {
+  background-color: #e74c3c; /* Red on hover */
+}
+
+.student-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.student-table th, .student-table td {
+  border: 1px solid #3498db; /* Light blue border */
+  padding: 10px;
+  text-align: left;
+}
+
+.student-table th {
+  background-color: #00d1b2; /* Attractive header color */
+}
+
+.student-table tr:nth-child(even) {
+  background-color: #2c2c2c; /* Darker row background */
+}
+
+.student-table tr:hover {
+  background-color: #3498db; /* Light blue on hover */
+}
+
+.student-table button {
+  padding: 5px 10px;
+  background-color: #e74c3c; /* Red button */
+  color: #ffffff; /* White text */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.student-table button:hover {
+  background-color: #f39c12; /* Orange on hover */
+}
