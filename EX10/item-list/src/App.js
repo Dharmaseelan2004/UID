@@ -7,12 +7,20 @@ const App = () => {
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const [quantity, setQuantity] = useState(1);
+    const [error, setError] = useState(null);  // Track errors in state
 
     // Fetch items from the server
     const fetchItems = async () => {
-        const response = await fetch('http://localhost:5000/api/items');
-        const data = await response.json();
-        setItems(data);
+        try {
+            const response = await fetch('http://localhost:5000/api/items');
+            if (!response.ok) throw new Error('Failed to fetch items');
+            const data = await response.json();
+            setItems(data);
+            setError(null);  // Clear previous errors if successful
+        } catch (error) {
+            console.error('Error fetching items:', error);
+            setError('Could not load items. Please try again later.');
+        }
     };
 
     useEffect(() => {
@@ -24,23 +32,30 @@ const App = () => {
         e.preventDefault();
         const newItem = { name, description, quantity };
 
-        await fetch('http://localhost:5000/api/items', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(newItem),
-        });
-
-        setName('');
-        setDescription('');
-        setQuantity(1);
-        fetchItems(); // Refresh the item list
+        try {
+            const response = await fetch('http://localhost:5000/api/items', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(newItem),
+            });
+            if (!response.ok) throw new Error('Failed to add item');
+            setName('');
+            setDescription('');
+            setQuantity(1);
+            fetchItems();  // Refresh the item list
+            setError(null);  // Clear errors if successful
+        } catch (error) {
+            console.error('Error adding item:', error);
+            setError('Could not add item. Please try again later.');
+        }
     };
 
     return (
         <div className="App">
             <h1>Item List</h1>
+            {error && <p className="error-message">{error}</p>}  {/* Display error messages */}
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"
